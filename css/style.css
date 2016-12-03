@@ -1,3 +1,8 @@
 body {
     text-align: center;
 }
+
+canvas#score {
+	border: 1px solid black;
+	border-radius: 50%;
+}

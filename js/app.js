@@ -1,4 +1,8 @@
 // Enemies our player must avoid
+var isPaused = false;
+var audio = document.querySelector('audio');
+audio.volume = 0.2;
+var ohNoImage = document.querySelector('img');
 var Enemy = function() {
     // Variables applied to each of our instances go here,
     // we've provided one for you to get started
@@ -51,12 +55,12 @@ Player.prototype.render = function() {
 
 Player.prototype.update = function(){
     // this.handleInput();
-    if(this.x > 500 || this.x < -101){
+    if(this.x > 450 || this.x < 0){
         this.x = 200;
         this.y = 280;
     }
 
-    if(this.y > 450 || this.y < -10){
+    if(this.y > 450 || this.y < 10){
         this.x = 200;
         this.y = 280;
     }
@@ -74,6 +78,9 @@ Player.prototype.handleInput = function(key){
     }
     if(key === 'down'){
         this.y += 70;
+    }
+    if(key === 'pause'){
+        isPaused = !isPaused;
     }
 };
 
@@ -97,7 +104,8 @@ document.addEventListener('keyup', function(e) {
         37: 'left',
         38: 'up',
         39: 'right',
-        40: 'down'
+        40: 'down',
+        32: 'pause'
     };
 
     player.handleInput(allowedKeys[e.keyCode]);

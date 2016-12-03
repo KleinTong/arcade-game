@@ -45,8 +45,11 @@ var Engine = (function(global) {
         /* Call our update/render functions, pass along the time delta to
          * our update function since it may be used for smooth animation.
          */
-        update(dt);
-        render();
+        if(!isPaused){
+            update(dt);
+            render();
+            contextDrawing();
+        }
 
         /* Set our lastTime variable which is used to determine the time delta
          * for the next time this function is called.
@@ -81,6 +84,7 @@ var Engine = (function(global) {
     function update(dt) {
         updateEntities(dt);
         checkCollisions();
+        getPoint();
     }
 
     /* This is called by the update function and loops through all of the
@@ -96,10 +100,20 @@ var Engine = (function(global) {
             if(Math.abs(player.x - enemy.x) < 70 && player.y == enemy.y){
                 player.x = 200;
                 player.y = 280;
+                point = 0;
                 allEnemies.forEach(function(enemy) {
                     enemy.changeY();
                     enemy.x = -50;
+                });
+                ctx.drawImage(ohNoImage,0,0);
+            }
         });
+     }
+
+     function getPoint(){
+        allEnemies.forEach(function(enemy) {
+            if(enemy.x > player.x){
+                point += 1;
             }
         });
      }
@@ -186,6 +200,7 @@ var Engine = (function(global) {
         'images/grass-block.png',
         'images/enemy-bug.png',
         'images/char-boy.png'
+        // 'images/spideMan.png'
     ]);
     Resources.onReady(init);
 
