@@ -2,6 +2,10 @@ body {
     text-align: center;
 }
 
+#aim {
+	font-family: 'Bungee Shade';
+}
+
 canvas#score {
 	border: 1px solid black;
 	border-radius: 50%;

@@ -24,6 +24,10 @@ var Engine = (function(global) {
         canvas = doc.createElement('canvas'),
         ctx = canvas.getContext('2d'),
         lastTime;
+    var nowTime,target,remainTime;
+    var winTime = 5;
+
+    var winOrLose = document.getElementById('winOrLose');
 
     canvas.width = 505;
     canvas.height = 606;
@@ -56,6 +60,7 @@ var Engine = (function(global) {
          */
         lastTime = now;
 
+        remainTime = target - now;
         /* Use the browser's requestAnimationFrame function to call this
          * function again as soon as the browser is able to draw another frame.
          */
@@ -67,6 +72,7 @@ var Engine = (function(global) {
      * game loop.
      */
     function init() {
+        timeBegin(winTime);
         reset();
         lastTime = Date.now();
         main();
@@ -83,8 +89,8 @@ var Engine = (function(global) {
      */
     function update(dt) {
         updateEntities(dt);
-        checkCollisions();
         getPoint();
+        checkCollisions();        
     }
 
     /* This is called by the update function and loops through all of the
@@ -94,6 +100,10 @@ var Engine = (function(global) {
      * the data/properties related to the object. Do your drawing in your
      * render methods.
      */
+     function timeBegin(seconds){
+        nowTime = new Date().getTime();
+        target = nowTime + seconds * 1000;
+     }
 
      function checkCollisions(){
         allEnemies.forEach(function(enemy) {
@@ -101,21 +111,29 @@ var Engine = (function(global) {
                 player.x = 200;
                 player.y = 280;
                 point = 0;
+                winOrLose.textContent = 'win or lose';
+                console.log('touch');
                 allEnemies.forEach(function(enemy) {
                     enemy.changeY();
                     enemy.x = -50;
                 });
-                ctx.drawImage(ohNoImage,0,0);
+                timeBegin(winTime);
+
+                // ctx.drawImage(ohNoImage,0,0);
             }
         });
      }
 
      function getPoint(){
-        allEnemies.forEach(function(enemy) {
-            if(enemy.x > player.x){
-                point += 1;
-            }
-        });
+        // allEnemies.forEach(function(enemy) {
+        //     if(enemy.x > player.x){
+        //         point += 1;
+        //     }
+        // });
+        if(remainTime < 0){
+        //win the game
+        winOrLose.textContent = 'win';
+        }
      }
 
     function updateEntities(dt) {

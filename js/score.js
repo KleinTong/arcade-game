@@ -12,3 +12,13 @@ function contextDrawing(){
 	context.font = '80px Bungee Shade';
 	context.fillText('0' + point,100,150);
 }
+
+// function countDown(seconds){
+// 	var nowTime = new Date().getTime();
+// 	var target = new Date().getTime(nowTime + seconds * 1000);
+// 	var remainTime = target - nowTime;
+// 	if(remainTime <= 0){
+// 		//win the game
+// 		document.getElementById('winOrLose').textContent = 'win';
+// 	}
+// }
