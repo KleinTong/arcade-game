@@ -25,7 +25,8 @@ var Engine = (function(global) {
         ctx = canvas.getContext('2d'),
         lastTime;
     var nowTime,target,remainTime;
-    var winTime = 5;
+    var winTime = 20;
+    var minutes,seconds;
 
     var winOrLose = document.getElementById('winOrLose');
 
@@ -52,7 +53,14 @@ var Engine = (function(global) {
         if(!isPaused){
             update(dt);
             render();
-            contextDrawing();
+            contextDrawing(minutes,seconds);
+            remainTime = (target - now) / 1000;
+            minutes = ~~(remainTime / 60);
+            seconds = ~~(remainTime % 60);
+            if(remainTime < 0){
+                minutes = 0;
+                seconds = 0;
+            }
         }
 
         /* Set our lastTime variable which is used to determine the time delta
@@ -60,7 +68,7 @@ var Engine = (function(global) {
          */
         lastTime = now;
 
-        remainTime = target - now;
+       
         /* Use the browser's requestAnimationFrame function to call this
          * function again as soon as the browser is able to draw another frame.
          */
