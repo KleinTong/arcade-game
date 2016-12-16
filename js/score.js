@@ -5,10 +5,11 @@ var point = 0;
 function contextDrawing(minutes,seconds){
 	context.fillStyle = "rgba(227,61,56,1)";
 	context.fillRect(0,0,200,200);
-	context.font = '30px Bungee Shade';
+	context.font = '20px Bungee Shade';
 	context.fillStyle = 'navy';
 	context.textAlign = 'center';
-	context.fillText('score',100,60);
+	context.fillText('time',100,50);
+	context.fillText('Remaining',100,75);
 	context.font = '80px Bungee Shade';
 	context.fillText(seconds,100,150);
 }

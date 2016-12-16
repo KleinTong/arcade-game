@@ -11,10 +11,10 @@ var Enemy = function() {
     // a helper we've provided to easily load images
     this.sprite = 'images/enemy-bug.png';
     this.x = 0;
-    this.y = (Math.floor(Math.random() * 3) + 1) * 70;
+    this.y = (Math.floor(Math.random() * 5) + 1) * 70;
     this.speed = (Math.floor(Math.random() * 5) + 1) * 100;
     this.changeY = function(){
-        this.y = (Math.floor(Math.random() * 3) + 1) * 70;
+        this.y = (Math.floor(Math.random() * 5) + 1) * 70;
     };
 };
 
@@ -118,9 +118,8 @@ Player.prototype.handleInput = function(key){
 var enemyOne = new Enemy();
 var enemyTwo = new Enemy();
 var enemyThree = new Enemy();
-enemyOne.consoleY();
-enemyTwo.consoleY();
-var allEnemies = [enemyOne,enemyTwo,enemyThree];
+var enemyFour = new Enemy();
+var allEnemies = [enemyOne,enemyTwo,enemyThree,enemyFour];
 
 var player = new Player();
 
