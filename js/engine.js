@@ -25,7 +25,7 @@ var Engine = (function(global) {
         ctx = canvas.getContext('2d'),
         lastTime;
     var nowTime,target,remainTime;
-    var winTime = 20;
+    var winTime = 2;
     var minutes,seconds;
 
     var winOrLose = document.getElementById('winOrLose');
@@ -126,6 +126,7 @@ var Engine = (function(global) {
                     enemy.x = -50;
                 });
                 timeBegin(winTime);
+                face.src = "images/ohno.jpg"
 
                 // ctx.drawImage(ohNoImage,0,0);
             }
@@ -141,6 +142,8 @@ var Engine = (function(global) {
         if(remainTime < 0){
         //win the game
         winOrLose.textContent = 'win';
+        var face = document.getElementById('face');
+        face.src = "images/smile.jpg"
         }
      }
 
@@ -225,7 +228,11 @@ var Engine = (function(global) {
         'images/water-block.png',
         'images/grass-block.png',
         'images/enemy-bug.png',
-        'images/char-boy.png'
+        'images/char-boy.png',
+        'images/char-cat-girl.png',
+        'images/char-horn-girl.png',
+        'images/char-pink-girl.png',
+        'images/char-princess-girl.png'
         // 'images/spideMan.png'
     ]);
     Resources.onReady(init);

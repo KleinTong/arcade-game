@@ -1,7 +1,7 @@
 // Enemies our player must avoid
 var isPaused = false;
 var audio = document.querySelector('audio');
-audio.volume = 0.2;
+audio.volume = 1;
 var ohNoImage = document.querySelector('img');
 var Enemy = function() {
     // Variables applied to each of our instances go here,
@@ -43,8 +43,36 @@ Enemy.prototype.consoleY = function() {
 // Now write your own player class
 // This class requires an update(), render() and
 // a handleInput() method.
+var roleOfPlayer = 'images/char-cat-girl.png';
+
+var rolea = document.getElementById('rolesa');
+var roleb = document.getElementById('rolesb');
+var rolec = document.getElementById('rolesc');
+var roled = document.getElementById('rolesd');
+var rolee = document.getElementById('rolese');
+
+rolea.onclick = function(){
+    roleOfPlayer = 'images/char-boy.png';
+}
+
+roleb.onclick = function(){
+    roleOfPlayer = 'images/char-cat-girl.png';
+}
+
+rolec.onclick = function(){
+    roleOfPlayer = 'images/char-horn-girl.png';
+}
+
+roled.onclick = function(){
+    roleOfPlayer = 'images/char-pink-girl.png';
+}
+
+rolee.onclick = function(){
+    roleOfPlayer = 'images/char-princess-girl.png';
+}
+
 var Player = function(){
-    this.sprite = 'images/char-boy.png';
+    this.sprite = roleOfPlayer;
     this.x = 200;
     this.y = 280;
 }

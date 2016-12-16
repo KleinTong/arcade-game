@@ -6,7 +6,31 @@ body {
 	font-family: 'Bungee Shade';
 }
 
+#audio1 {
+	position: fixed;
+	top: 20px;
+	right: 0px;
+}
+
+#audio2 {
+	position: fixed;
+	top: 50px;
+	right: 0px;
+}
+
+#face {
+	position: fixed;
+	top: 20px;
+	left: 20px;
+	width: 270px;
+	height: 270px;
+	border-radius: 50%;
+}
+
 canvas#score {
 	border: 1px solid black;
 	border-radius: 50%;
+	position: fixed;
+	top: 300px;
+	left: 20px;
 }

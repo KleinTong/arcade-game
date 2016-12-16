@@ -9,11 +9,21 @@
 <body>
 	<h1 id="aim">please insist one minute</h1>
 	<h2 id="winOrLose">win or lose</h2>
-	<img src="images/ohno.jpg">
-	<audio autoplay="true" loop controls="" >
+	<img id="face" src="images/ohno.jpg">
+	<audio  loop controls="" id="audio1">
 		<source src="audio/蘇打綠 sodagreen -【他舉起右手點名 Live】Official Music Video.mp3" type="audio/mpeg">
 	</audio>
+	<audio autoplay="true" loop controls="" id="audio2">
+		<source src="audio/Gostan - Klanga (De Hofnar Remix).mp3" type="audio/mpeg">
+	</audio>
 	<canvas id="score" width="200" height="200"></canvas>
+	<div id="selectRole">
+		<button id="rolesa"></button>
+		<button id="rolesb"></button>
+		<button id="rolesc"></button>
+		<button id="rolesd"></button>
+		<button id="rolese"></button>
+	</div>
     <script src="js/resources.js"></script>
     <script src="js/app.js"></script>
     <script src="js/engine.js"></script>
