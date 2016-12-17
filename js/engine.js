@@ -121,15 +121,7 @@ var Engine = (function(global) {
                 point = 0;
                 winOrLose.textContent = 'win or lose';
                 console.log('touch');
-                allEnemies.forEach(function(enemy,index) {
-                    enemy.changeY();
-                    if(index <= 3){
-                        enemy.x = -50;
-                    }
-                    if(index > 3){
-                        enemy.x = 505;
-                    }
-                });
+                reset();
                 timeBegin(winTime);
                 face.src = "images/ohno.jpg"
 
@@ -221,13 +213,52 @@ var Engine = (function(global) {
      * those sorts of things. It's only called once by the init() method.
      */
     function reset() {
-        // noop
+        allEnemies.forEach(function(enemy,index) {
+                    enemy.changeY();
+                    if(index <= 3){
+                        enemy.x = -50;
+                    }
+                    if(index > 3){
+                        enemy.x = 505;
+                    }
+        });
     }
 
     /* Go ahead and load all of the images we know we're going to need to
      * draw our game level. Then set init as the callback method, so that when
      * all of these images are properly loaded our game will start.
      */
+
+    var rolea = document.getElementById('rolesa');
+    var roleb = document.getElementById('rolesb');
+    var rolec = document.getElementById('rolesc');
+    var roled = document.getElementById('rolesd');
+    var rolee = document.getElementById('rolese');
+
+    rolea.onclick = function(){
+        player.sprite = 'images/char-boy.png';
+        reset();
+    }
+
+    roleb.onclick = function(){
+        player.sprite = 'images/char-cat-girl.png';
+        reset();
+    }
+
+    rolec.onclick = function(){
+        player.sprite = 'images/char-horn-girl.png';
+        reset();
+    }
+
+    roled.onclick = function(){
+        player.sprite = 'images/char-pink-girl.png';
+        reset();
+    }
+
+    rolee.onclick = function(){
+        player.sprite = 'images/char-princess-girl.png';
+        reset();
+    }
     Resources.load([
         'images/stone-block.png',
         'images/water-block.png',

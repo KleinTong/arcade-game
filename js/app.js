@@ -43,6 +43,16 @@ rightEnemy.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
+// var acrossEnemy = function(){
+//     this.sprite = 'images/enemy-bug-reverse.png';
+//     this.x = -50;
+//     this.y = 0;
+//     this.speed = (Math.floor(Math.random() * 5) + 1) * 100;
+//     this.changeY = function(){
+//         this.y = (Math.floor(Math.random() * 5) + 1) * 70;
+//     };
+// };
+
 // Update the enemy's position, required method for game
 // Parameter: dt, a time delta between ticks
 Enemy.prototype.update = function(dt) {
@@ -64,33 +74,36 @@ Enemy.prototype.render = function() {
 // Now write your own player class
 // This class requires an update(), render() and
 // a handleInput() method.
+
+// var roleOfPlayer = 'images/char-cat-girl.png';
+
+// var rolea = document.getElementById('rolesa');
+// var roleb = document.getElementById('rolesb');
+// var rolec = document.getElementById('rolesc');
+// var roled = document.getElementById('rolesd');
+// var rolee = document.getElementById('rolese');
+
+// rolea.onclick = function(){
+//     roleOfPlayer = 'images/char-boy.png';
+//     Resources.onReady(init);
+// }
+
+// roleb.onclick = function(){
+//     roleOfPlayer = 'images/char-cat-girl.png';
+// }
+
+// rolec.onclick = function(){
+//     roleOfPlayer = 'images/char-horn-girl.png';
+// }
+
+// roled.onclick = function(){
+//     roleOfPlayer = 'images/char-pink-girl.png';
+// }
+
+// rolee.onclick = function(){
+//     roleOfPlayer = 'images/char-princess-girl.png';
+// }
 var roleOfPlayer = 'images/char-cat-girl.png';
-
-var rolea = document.getElementById('rolesa');
-var roleb = document.getElementById('rolesb');
-var rolec = document.getElementById('rolesc');
-var roled = document.getElementById('rolesd');
-var rolee = document.getElementById('rolese');
-
-rolea.onclick = function(){
-    roleOfPlayer = 'images/char-boy.png';
-}
-
-roleb.onclick = function(){
-    roleOfPlayer = 'images/char-cat-girl.png';
-}
-
-rolec.onclick = function(){
-    roleOfPlayer = 'images/char-horn-girl.png';
-}
-
-roled.onclick = function(){
-    roleOfPlayer = 'images/char-pink-girl.png';
-}
-
-rolee.onclick = function(){
-    roleOfPlayer = 'images/char-princess-girl.png';
-}
 
 var Player = function(){
     this.sprite = roleOfPlayer;
