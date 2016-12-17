@@ -121,9 +121,14 @@ var Engine = (function(global) {
                 point = 0;
                 winOrLose.textContent = 'win or lose';
                 console.log('touch');
-                allEnemies.forEach(function(enemy) {
+                allEnemies.forEach(function(enemy,index) {
                     enemy.changeY();
-                    enemy.x = -50;
+                    if(index <= 3){
+                        enemy.x = -50;
+                    }
+                    if(index > 3){
+                        enemy.x = 505;
+                    }
                 });
                 timeBegin(winTime);
                 face.src = "images/ohno.jpg"
@@ -232,7 +237,8 @@ var Engine = (function(global) {
         'images/char-cat-girl.png',
         'images/char-horn-girl.png',
         'images/char-pink-girl.png',
-        'images/char-princess-girl.png'
+        'images/char-princess-girl.png',
+        'images/enemy-bug-reverse.png'
         // 'images/spideMan.png'
     ]);
     Resources.onReady(init);

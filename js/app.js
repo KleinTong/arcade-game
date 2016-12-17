@@ -18,6 +18,31 @@ var Enemy = function() {
     };
 };
 
+var rightEnemy = function(){
+    this.sprite = 'images/enemy-bug-reverse.png';
+    this.x = 505;
+    this.y = (Math.floor(Math.random() * 5) + 1) * 70;
+    this.speed = (Math.floor(Math.random() * 5) + 1) * 100;
+    this.changeY = function(){
+        this.y = (Math.floor(Math.random() * 5) + 1) * 70;
+    };
+};
+
+rightEnemy.prototype.update = function(dt) {
+    // You should multiply any movement by the dt parameter
+    // which will ensure the game runs at the same speed for
+    // all computers.
+    this.x -= this.speed * dt;
+    if(this.x < 0){
+        this.x = 505;
+        this.changeY();
+    }
+};
+
+rightEnemy.prototype.render = function() {
+    ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+};
+
 // Update the enemy's position, required method for game
 // Parameter: dt, a time delta between ticks
 Enemy.prototype.update = function(dt) {
@@ -35,10 +60,6 @@ Enemy.prototype.update = function(dt) {
 Enemy.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
-
-Enemy.prototype.consoleY = function() {
-    console.log(this.y);
-}
 
 // Now write your own player class
 // This class requires an update(), render() and
@@ -118,8 +139,9 @@ Player.prototype.handleInput = function(key){
 var enemyOne = new Enemy();
 var enemyTwo = new Enemy();
 var enemyThree = new Enemy();
-var enemyFour = new Enemy();
-var allEnemies = [enemyOne,enemyTwo,enemyThree,enemyFour];
+var enemyFour = new rightEnemy();
+var enemyFive = new rightEnemy();
+var allEnemies = [enemyOne,enemyTwo,enemyThree,enemyFour,enemyFive];
 
 var player = new Player();
 
