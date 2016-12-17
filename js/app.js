@@ -109,7 +109,7 @@ Player.prototype.update = function(){
         this.y = 280;
     }
 
-    if(this.y > 450 || this.y < 10){
+    if(this.y > 400 || this.y < 10){
         this.x = 200;
         this.y = 280;
     }
